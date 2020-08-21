@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import datos from '../assets/json/zodiaco.json'
-import { Container } from 'react-bootstrap'
-import {Col,Row,Navbar,Modal,Card,Nav,Form,FormControl,NavDropdown,Button} from 'react-bootstrap'
+import {Container,Col,Row,Navbar,Modal,Card,Nav,Form,FormControl,NavDropdown,Button} from 'react-bootstrap'
+import {Link} from 'react-router-dom'
 export default class Detalle extends Component {
     constructor(props){
         super(props)
@@ -9,14 +9,18 @@ export default class Detalle extends Component {
         this.state={datos,meses}
         console.log(props)
     }
+    volver=()=>{
+        window.history.back();
+      }
     render() {
       let id= Number( this.props.match.params.id)
       let element=this.state.datos.find(aux=>aux.id==id)
         return (
-            <div className="container" style={{
+            <div style={{
                 marginTop:'100px'
             }}>
-<div>
+
+    <Container>
    <Row>
        <Col>
          <Row>
@@ -60,7 +64,9 @@ export default class Detalle extends Component {
        
        </Col>
    </Row>
-</div>
+<Link className="btn btn-info btn-small btn-block" to="#" onClick={this.volver}> VOLVER</Link>
+
+</Container>
 
             </div>
         )

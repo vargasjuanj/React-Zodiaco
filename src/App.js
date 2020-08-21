@@ -4,6 +4,7 @@ import MenuSuperiorDeOpciones from './components/MenuSuperiorDeOpciones';
 import Home from './pages/Home';
 import Detalle from './pages/Detalle';
 import AgrupadosPorElementos from './pages/AgrupadosPorElementos';
+import NotFound from './pages/NotFound';
 //import {Link} from 'react-router-dom'
 //import './App.css'
 //import logo from './logo.svg'
@@ -20,6 +21,8 @@ import AgrupadosPorElementos from './pages/AgrupadosPorElementos';
    }
 
  */
+
+//Si o si hay que repetir a home en la ruta para que por defecto tome primero a home (/) sin parametros y despues con parametros, al final se pone cuando hay una ruta que no se conoce , el notfound se usa
 function App() {
 
 
@@ -35,6 +38,7 @@ function App() {
   <Route exact path="/home/:mes" component={Home}></Route>
   <Route exact path="/detalles/:id" component={Detalle}></Route>
   <Route exact path="/agrupados" component={AgrupadosPorElementos}></Route>
+  <Route component={NotFound}></Route>
 
 </Switch>
 </BrowserRouter>
